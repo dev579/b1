@@ -51,6 +51,96 @@
         </code></pre>
 
 
+
+        <h3>Вывести все разделы в которых находится элемент инфоблока / GetElementGroups - Bitrix</h3>
+
+        <pre><code class="language-php">
+
+          Метод возвращает путь по дереву от корня до раздела SECTION_ID
+
+          $navChain = CIBlockSection::GetNavChain($IBLOCK_ID, $SectionID); 
+          while ($arNav=$navChain->GetNext()): echo "<pre>"; print_r($arNav); echo "</pre>";
+          
+          
+          ист: https://www.cyberforum.ru/1c-bitrix/thread1778864.html (blog)
+          
+          
+          еще можно посмотреть здесь:
+          - https://qna.habr.com/q/577186 (Как получить корневой раздел элемента инфоблока?)
+          
+          
+          ---
+          
+          
+          Варианты решения задачи: 
+          
+          <h3>Получение самого верхнего родительского раздела инфоблока</h3
+          
+          
+          Нам нужно определить, является ли текущий раздел, в котором находится пользователь, корневым. Для этого воспользуемся методом CIBlockSection::GetNavChain - возвращает путь по дереву от корня до раздела SECTION_ID
+          
+          $navChain = CIBlockSection::GetNavChain(
+            $arParams["IBLOCK_ID"], 
+            $arResult['VARIABLES']['SECTION_ID']
+          )
+          while ($arNav = $navChain->Fetch()) {
+                var_dump($arNav);
+          }
+          
+          
+          В var_dump получим всю цепочку разделов, начиная с корневого.
+          
+          Далее: нужно получить ID корневого раздела и сопоставить с текущим. Просто оборвем цикл while на первой итерации, сопоставим разделы и создадим переменную для дальнейшего сравнения.
+          
+          
+          $navChain = CIBlockSection::GetNavChain(
+            $arParams["IBLOCK_ID"], 
+            $arResult['VARIABLES']['SECTION_ID']
+          );
+          while ($arNav = $navChain->Fetch()) {
+            if ($arResult['VARIABLES']['SECTION_ID'] == $arNav['ID']) {
+              $itMainSection = true;
+            }
+          break;}
+          
+          
+          Здесь мы создали переменную $itMainSection при условии если текущий раздел совпал с корневым. Дальше, просто, обворачиваем фильтр в условие.
+          
+          
+          if ($itMainSection) {
+            $APPLICATION->IncludeComponent(
+                  "bitrix:catalog.smart.filter",
+                 ...
+                   Компонент фильтра
+                 ...
+              );
+          }
+          
+          
+          Если переменная $itMainSection существует, значит пользователь находится в корневом разделе и выводится умный фильтр.
+
+        </code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
