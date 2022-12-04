@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -5,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>b1</title>
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="b1" />
 <meta property="og:locale" content="en_US" />
 <link rel="canonical" href="https://dev579.github.io/b1/" />
@@ -16,36 +19,31 @@
 <meta property="twitter:title" content="b1" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","headline":"b1","name":"b1","url":"https://dev579.github.io/b1/"}</script>
-<link rel="stylesheet" href="/b1/assets/css/style.css?v=486378b5600bfe1d4855a57d61a2e59a7e76da4a">
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-</head>
-<body>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/b1/assets/css/style.css?v=486378b5600bfe1d4855a57d61a2e59a7e76da4a">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/b1/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-    <!--  <h1 id="b1"></h1>     -->
 
-<h3>Вывести все разделы в которых находится элемент инфоблока<h3>
-
-<pre><code class="">
-<?php
-$ElementId = $arResult['ID'];
-    $db_groups = CIBlockElement::GetElementGroups($ElementId, true);
-    while($ar_group = $db_groups->Fetch()) {
-        echo 'Все товары: <a href="/catalog/'. $ar_group["ID"] . '/">';
-        echo $ar_group["NAME"];
-        echo "</a>";
-}
-?>
-</code></pre>
+      <h1 id="b1">b1</h1>
 
 
       
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>anchors.add();</script>
-    <script>hljs.highlightAll();</script>
-
   </body>
 </html>
