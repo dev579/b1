@@ -276,7 +276,7 @@
 Один из вариантов вывода информационных блоков в Bitrix, это "подключаемые области".
 По сути это просто файлы, содержимое которых будет размещено в указанной позиции шаблона.
 
-<?$APPLICATION->IncludeComponent(
+$APPLICATION->IncludeComponent(
 "bitrix:main.include",
 "",
 Array(
@@ -285,20 +285,20 @@ Array(
 "EDIT_TEMPLATE" => "",
 "PATH" => "/area-compare-bookmarks.php"
 )
-);?>
+);
 
 
 Еще пример:
 
 
-<? $APPLICATION->IncludeComponent(
+$APPLICATION->IncludeComponent(
 "bitrix:main.include", 
 "", 
 array("AREA_FILE_SHOW" => "file", 
 "PATH" => SITE_DIR.
 "include_areas/telephones.php"
 ), false); 
-?>
+
 </code></pre>
 
 
