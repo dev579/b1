@@ -124,6 +124,58 @@
         </code></pre>
 
 
+        <h3>Получаем "пользовательские свойства" раздела Bitrix</h3>
+
+        <pre><code class="language-php">
+          $aProp = CIBlockElement::GetByID($aItem['ID'])->GetNextElement()->GetProperties();
+
+          Получить категорию со значениями пользовательских полей (Userfields):
+          
+              $aCategories = CIBlockSection::GetList(
+                  array('sort' => 'asc'),
+                  array(
+                      'ACTIVE' => 'Y',
+                      'GLOBAL_ACTIVE' => 'Y',
+                      'IBLOCK_ID' => 1, // !! Нужно обязательно указывать, иначе userfields не возвращаются
+                      'SECTION_ID' => 98
+                  ),
+                  FALSE,
+                  array("UF_SOTYPE") // Можно указать "UF_*"
+              );
+           
+              if ($aCategories->SelectedRowsCount() > 0)
+              {
+                  $i = 0;
+          //        while ($row = $aCategories->Fetch())
+                  while ($row = $aCategories->GetNext())
+                  {
+                      if ($row['UF_SOTYPE'] == 1)
+                      {
+                        $aItems1[] = $aItem;
+                      }
+                      else
+                      {
+                        $aItems2[] = $aItem;            
+                      }
+                  }
+              }
+
+        </code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <h2 id="b2">"Элементы разделов Bitrix</h2> 
 
