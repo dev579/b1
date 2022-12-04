@@ -203,103 +203,103 @@
 
 
 
-<h3>Создание превьюшек изображений в Bitrix (CFile::ResizeImageGet)</h3>
+      <h3>Создание превьюшек изображений в Bitrix (CFile::ResizeImageGet)</h3>
 
-<pre><code class="language-php">
+      <pre><code class="language-php">
 
-  Существует готовый метод, позволяющий выводить картинку уже в уменьшенном размере, это CFile::ResizeImageGet, пример использования ниже.
-
-
-  foreach($arResult["PROPERTIES"]["EL_MOREPHOTO"]["VALUE"] as $all_url)
-  {
-    $z = CFile::ResizeImageGet($all_url, array('width'=>150, 'height'=>150), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-    echo '<pre>';
-    print_r($z);
-    echo '</pre>';
-?>
-<p>
-    <img src="<?=$z['src']?>" alt="" />
-</p>
-<?
- 
-  }
-  
-</code></pre>
+        Существует готовый метод, позволяющий выводить картинку уже в уменьшенном размере, это CFile::ResizeImageGet, пример использования ниже.
 
 
-<h3>Выполнение прямых запросов к БД - Bitrix</h3>
-
-<pre><code class="language-php">
-  Описание и параметры
-
-  CDatabase::Query(
-   string sql,
-   bool ignore_errors=false,
-   string error_position="",
-   array Options=array() 
-  )
-  
-  Метод выполняет запрос к базе данных и если не произошло ошибки возвращает результат.
-  
-  
-  Пример использования: 
-  
-  global $DB;
-  
-  $sql_query="
-    SELECT *
-      FROM `b_user`
-  ";
-  //echo $sql_query;
-  $rs = $DB->Query($sql_query, true);
-  if($rs!=false)
-  {
-    while($item = $rs->GetNext())
-    {
-      print_r($item);
-    }
-  }
-  
-  
-  
-  Документация Bitrix: https://dev.1c-bitrix.ru/api_help/main/reference/cdatabase/query.php
-
-</code></pre>
+        foreach($arResult["PROPERTIES"]["EL_MOREPHOTO"]["VALUE"] as $all_url)
+        {
+          $z = CFile::ResizeImageGet($all_url, array('width'=>150, 'height'=>150), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+          echo '<pre>';
+          print_r($z);
+          echo '</pre>';
+      ?>
+      <p>
+          <img src="<?=$z['src']?>" alt="" />
+      </p>
+      <?
+      
+        }
+        
+      </code></pre>
 
 
+      <h3>Выполнение прямых запросов к БД - Bitrix</h3>
+
+      <pre><code class="language-php">
+        Описание и параметры
+
+        CDatabase::Query(
+        string sql,
+        bool ignore_errors=false,
+        string error_position="",
+        array Options=array() 
+        )
+        
+        Метод выполняет запрос к базе данных и если не произошло ошибки возвращает результат.
+        
+        
+        Пример использования: 
+        
+        global $DB;
+        
+        $sql_query="
+          SELECT *
+            FROM `b_user`
+        ";
+        //echo $sql_query;
+        $rs = $DB->Query($sql_query, true);
+        if($rs!=false)
+        {
+          while($item = $rs->GetNext())
+          {
+            print_r($item);
+          }
+        }
+        
+        
+        
+        Документация Bitrix: https://dev.1c-bitrix.ru/api_help/main/reference/cdatabase/query.php
+
+      </code></pre>
 
 
-  <h3>Как добавить "подключаемые области" в bitrix</h3>
-
-  <pre><code class="language-php">
-
-    Один из вариантов вывода информационных блоков в Bitrix, это "подключаемые области".
-    По сути это просто файлы, содержимое которых будет размещено в указанной позиции шаблона.
-
-    $APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-    "AREA_FILE_SHOW" => "file",
-    "AREA_FILE_SUFFIX" => "inc",
-    "EDIT_TEMPLATE" => "",
-    "PATH" => "/area-compare-bookmarks.php"
-    )
-    );
 
 
-    Еще пример:
+        <h3>Как добавить "подключаемые области" в bitrix</h3>
+
+        <pre><code class="language-php">
+
+          Один из вариантов вывода информационных блоков в Bitrix, это "подключаемые области".
+          По сути это просто файлы, содержимое которых будет размещено в указанной позиции шаблона.
+
+          $APPLICATION->IncludeComponent(
+          "bitrix:main.include",
+          "",
+          Array(
+          "AREA_FILE_SHOW" => "file",
+          "AREA_FILE_SUFFIX" => "inc",
+          "EDIT_TEMPLATE" => "",
+          "PATH" => "/area-compare-bookmarks.php"
+          )
+          );
 
 
-    $APPLICATION->IncludeComponent(
-    "bitrix:main.include", 
-    "", 
-    array("AREA_FILE_SHOW" => "file", 
-    "PATH" => SITE_DIR.
-    "include_areas/telephones.php"
-    ), false); 
+          Еще пример:
 
-  </code></pre>
+
+          $APPLICATION->IncludeComponent(
+          "bitrix:main.include", 
+          "", 
+          array("AREA_FILE_SHOW" => "file", 
+          "PATH" => SITE_DIR.
+          "include_areas/telephones.php"
+          ), false); 
+
+        </code></pre>
 
 
 
