@@ -24,6 +24,7 @@
 
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="/b1/css/tokyo-night-dark.css">  
 <link rel="stylesheet" href="/b1/css/custom.css">      
 <style>    
     body {background-color: #222; color: #fff;}
@@ -36,7 +37,7 @@
 
 <h3>Вывести все разделы в которых находится элемент инфоблока<h3>
 
-<pre><code class="">
+<pre><code class="language-php">
 <?php
 $ElementId = $arResult['ID'];
     $db_groups = CIBlockElement::GetElementGroups($ElementId, true);
