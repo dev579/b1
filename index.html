@@ -269,37 +269,37 @@
 
 
 
-<h3>Как добавить "подключаемые области" в bitrix</h3>
+  <h3>Как добавить "подключаемые области" в bitrix</h3>
 
-<pre><code class="language-php">
+  <pre><code class="language-php">
 
-Один из вариантов вывода информационных блоков в Bitrix, это "подключаемые области".
-По сути это просто файлы, содержимое которых будет размещено в указанной позиции шаблона.
+    Один из вариантов вывода информационных блоков в Bitrix, это "подключаемые области".
+    По сути это просто файлы, содержимое которых будет размещено в указанной позиции шаблона.
 
-$APPLICATION->IncludeComponent(
-"bitrix:main.include",
-"",
-Array(
-"AREA_FILE_SHOW" => "file",
-"AREA_FILE_SUFFIX" => "inc",
-"EDIT_TEMPLATE" => "",
-"PATH" => "/area-compare-bookmarks.php"
-)
-);
-
-
-Еще пример:
+    $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+    "AREA_FILE_SHOW" => "file",
+    "AREA_FILE_SUFFIX" => "inc",
+    "EDIT_TEMPLATE" => "",
+    "PATH" => "/area-compare-bookmarks.php"
+    )
+    );
 
 
-$APPLICATION->IncludeComponent(
-"bitrix:main.include", 
-"", 
-array("AREA_FILE_SHOW" => "file", 
-"PATH" => SITE_DIR.
-"include_areas/telephones.php"
-), false); 
+    Еще пример:
 
-</code></pre>
+
+    $APPLICATION->IncludeComponent(
+    "bitrix:main.include", 
+    "", 
+    array("AREA_FILE_SHOW" => "file", 
+    "PATH" => SITE_DIR.
+    "include_areas/telephones.php"
+    ), false); 
+
+  </code></pre>
 
 
 
