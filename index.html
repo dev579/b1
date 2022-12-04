@@ -38,7 +38,7 @@
 <h3>Вывести все разделы в которых находится элемент инфоблока (CIBlockElement::GetElementGroups)<h3>
 
 <pre><code class="language-php">
-<?php
+
 $ElementId = $arResult['ID'];
     $db_groups = CIBlockElement::GetElementGroups($ElementId, true);
     while($ar_group = $db_groups->Fetch()) {
@@ -46,7 +46,7 @@ $ElementId = $arResult['ID'];
         echo $ar_group["NAME"];
         echo "</a>";
 }
-?>
+
 </code></pre>
 
 
